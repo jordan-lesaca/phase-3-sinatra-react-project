@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_030255) do
+ActiveRecord::Schema.define(version: 2021_11_23_041458) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "style"
     t.integer "age"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "museums", force: :cascade do |t|
+    t.string "name"
+    t.datetime "create_at"
+    t.datetime "updated_at"
   end
 
   create_table "paintings", force: :cascade do |t|
