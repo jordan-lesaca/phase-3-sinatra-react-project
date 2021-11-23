@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_042721) do
+ActiveRecord::Schema.define(version: 2021_11_23_063521) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2021_11_23_042721) do
 
   create_table "museums", force: :cascade do |t|
     t.string "name"
-    t.datetime "create_at"
+    t.datetime "created_at"
     t.datetime "updated_at"
   end
 
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 2021_11_23_042721) do
     t.integer "year_created"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer "artist_id"
+    t.integer "museum_id"
   end
 
 end
