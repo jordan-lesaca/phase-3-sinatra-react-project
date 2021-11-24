@@ -6,4 +6,16 @@ class ApplicationController < Sinatra::Base
     { message: "Good luck with your project!" }.to_json
   end
 
+  get "/artists/:id" do #the ":" means it is dynamic.  
+    #return json
+  end
+
+  get "/paintings" do
+    #return json
+  end
+
+  get "/museums" do
+    #return json
+  end
+
 end
