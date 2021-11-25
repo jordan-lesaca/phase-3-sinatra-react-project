@@ -10,30 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_23_063521) do
+ActiveRecord::Schema.define(version: 2021_11_25_215729) do
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
     t.string "style"
-    t.integer "age"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "museums", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "year_born"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "paintings", force: :cascade do |t|
     t.string "title"
-    t.string "paint_type"
     t.integer "year_created"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.boolean "in_exhibition"
     t.integer "artist_id"
-    t.integer "museum_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
 end

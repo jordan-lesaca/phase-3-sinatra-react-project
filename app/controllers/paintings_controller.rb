@@ -20,6 +20,7 @@ class PaintingsController < ApplicationController
             artist_id: params[:artist_id],
             museum_id: params[:museum_id]
         )
+        painting.to_json
     end
     #delete
     delete "/paintings/:id" do
