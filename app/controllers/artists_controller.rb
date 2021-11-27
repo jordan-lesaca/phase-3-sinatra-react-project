@@ -9,19 +9,16 @@ class ArtistsController < ApplicationController
     get "/artists/:id" do #the ":" means it is dynamic.  
         #return json
         artist = Artist.find(params[:id])
-        artist.to_json(only: [:id, :name, :style, :age], include: {
-            paintings: { only: [:title, :paint_type, :year_created], include: {
-                museum: { only: [:name] }
-            }}
-        })
+        artist.to_json
     end
     #post
     post "/artists" do
         artist = Artist.create(
             name: params[:name],
             style: params[:style],
-            age: params[:age],
+            year_born: params[:year_born],
         )
+        artist.to_json
     end
     #delete
     delete "/artists/:id" do
@@ -35,8 +32,18 @@ class ArtistsController < ApplicationController
         artist.update(
             name: params[:name],
             style: params[:style],
-            age: params[:age],            
+            year_born: params[:year_born],            
         )
         artist.to_json
     end
-end
+ end
+
+# get "/artists/:id" do #the ":" means it is dynamic.  
+#     #return json
+#     artist = Artist.find(params[:id])
+#     artist.to_json(only: [:id, :name, :style, :age], include: {
+#         paintings: { only: [:title, :paint_type, :year_created], include: {
+#             museum: { only: [:name] }
+#         }}
+#     })
+# end

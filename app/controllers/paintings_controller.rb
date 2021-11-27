@@ -15,10 +15,8 @@ class PaintingsController < ApplicationController
     post "/paintings" do
         painting = Painting.create(
             title: params[:title],
-            paint_type: params[:paint_type],
             year_created: params[:year_created],
             artist_id: params[:artist_id],
-            museum_id: params[:museum_id]
         )
         painting.to_json
     end
@@ -33,10 +31,8 @@ class PaintingsController < ApplicationController
         painting = Painting.find(params[:id])
         painting.update(
             title: params[:title],
-            paint_type: params[:paint_type],
             year_created: params[:year_created],
-            artist_id: params[:artist_id],
-            museum_id: params[:museum_id]            
+            artist_id: params[:artist_id],        
         )
         painting.to_json
     end
