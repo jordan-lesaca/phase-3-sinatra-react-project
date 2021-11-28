@@ -2,7 +2,7 @@ class PaintingsController < ApplicationController
     #read
     get "/paintings" do
         #return json
-        painting = Painting.all.order(:title).limit(10)
+        painting = Painting.all.order(:year_created).limit(10)
         painting.to_json
     end
     #read
