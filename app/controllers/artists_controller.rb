@@ -1,17 +1,17 @@
 class ArtistsController < ApplicationController 
-    #read
-    get "/artists" do #Get is a read request. GET READ
+    
+    get "/artists" do #GET READ
         #return json
         artist = Artist.all.order(:name).limit(10)
         artist.to_json
       end
-    #read
+    
     get "/artists/:id" do #the ":" means it is dynamic.  
         #return json
         artist = Artist.find(params[:id])
         artist.to_json
     end
-    #post
+    
     post "/artists" do
         artist = Artist.create(
             name: params[:name],
@@ -20,7 +20,7 @@ class ArtistsController < ApplicationController
         )
         artist.to_json
     end
-    #delete
+    
     delete "/artists/:id" do
         artist = Artist.find(params[:id])
         artist.destroy
@@ -37,13 +37,3 @@ class ArtistsController < ApplicationController
         artist.to_json
     end
  end
-
-# get "/artists/:id" do #the ":" means it is dynamic.  
-#     #return json
-#     artist = Artist.find(params[:id])
-#     artist.to_json(only: [:id, :name, :style, :age], include: {
-#         paintings: { only: [:title, :paint_type, :year_created], include: {
-#             museum: { only: [:name] }
-#         }}
-#     })
-# end

@@ -1,17 +1,15 @@
 class PaintingsController < ApplicationController
-    #read
+    
     get "/paintings" do
-        #return json
         painting = Painting.all.order(:year_created).limit(10)
         painting.to_json
     end
-    #read
-    get "/paintings/:id" do #the ":" means it is dynamic.  
-        #return json
+    
+    get "/paintings/:id" do 
         painting = Painting.find(params[:id])
         painting.to_json
     end
-    #post
+    
     post "/paintings" do
         painting = Painting.create(
             title: params[:title],
@@ -20,13 +18,13 @@ class PaintingsController < ApplicationController
         )
         painting.to_json
     end
-    #delete
+    
     delete "/paintings/:id" do
         painting = Painting.find(params[:id])
         painting.destroy
         painting.to_json
     end
-    #patch
+    
     patch "/paintings/:id" do
         painting = Painting.find(params[:id])
         painting.update(
